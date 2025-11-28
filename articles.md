@@ -23,3 +23,48 @@ events it publishes.
 
 In summary, these six principles of autonomy, loose coupling, reuse, fault tolerance, composability,
 and discoverability form the foundation of microservices architecture.
+
+## Standard project tree:
+src/
+ └─ main/
+     ├─ java/
+     │   └─ com.example.project/
+     │        ├─ config/
+     │        │     ├─ WebConfig.java
+     │        │     └─ SecurityConfig.java
+     │        │
+     │        ├─ common/
+     │        │     ├─ exception/
+     │        │     ├─ util/
+     │        │     └─ annotations/
+     │        │
+     │        ├─ user/
+     │        │     ├─ domain/
+     │        │     │     ├─ User.java
+     │        │     │     ├─ UserRepository.java (domain interface)
+     │        │     │     └─ UserService.java
+     │        │     │
+     │        │     ├─ infrastructure/
+     │        │     │     └─ UserJpaRepository.java (JPA impl)
+     │        │     │
+     │        │     ├─ web/
+     │        │     │     ├─ UserController.java
+     │        │     │     └─ dto/
+     │        │     │           ├─ UserRequest.java
+     │        │     │           └─ UserResponse.java
+     │        │     │
+     │        │     └─ application/
+     │        │           └─ UserUseCases.java
+     │        │
+     │        ├─ auth/
+     │        │     ├─ domain/...
+     │        │     ├─ infrastructure/...
+     │        │     ├─ web/...
+     │        │     └─ application/...
+     │        │
+     │        └─ ProjectApplication.java
+     │
+     └─ resources/
+         ├─ application.yml
+         ├─ static/
+         └─ templates/
